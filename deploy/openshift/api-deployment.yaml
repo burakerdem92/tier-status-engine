@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tier-status-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: tier-status-api
+  template:
+    metadata:
+      labels:
+        app: tier-status-api
+    spec:
+      containers:
+        - name: app
+          image: replace-me/tier-status-engine:1.0.0
+          envFrom:
+            - configMapRef:
+                name: tier-status-engine
+            - secretRef:
+                name: tier-status-engine-db
+          env:
+            - name: CONSUMER_ENABLED
+              value: "false"
+            - name: API_ENABLED
+              value: "true"
+            - name: OUTBOX_ENABLED
+              value: "false"
+            - name: PERIOD_END_ENABLED
+              value: "false"
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              cpu: 250m
+              memory: 512Mi
+            limits:
+              cpu: "1"
+              memory: 1Gi
+          readinessProbe:
+            httpGet:
+              path: /actuator/health/readiness
+              port: 8080
+            initialDelaySeconds: 15
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 15

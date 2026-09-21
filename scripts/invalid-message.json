@@ -1,0 +1,10 @@
+{
+  "eventId": "invalid-event-1",
+  "eventType": "FLIGHT_FLOWN",
+  "eventTime": "not-a-date",
+  "source": "DCS",
+  "memberId": "TK123456789",
+  "payload": {
+    "operatingCarrier": "TK"
+  }
+}

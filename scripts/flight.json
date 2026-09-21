@@ -1,0 +1,20 @@
+{
+  "eventId": "e7c1b6d2-3f4a-4c8e-9a51-2f0d8b7c1a90",
+  "eventType": "FLIGHT_FLOWN",
+  "eventTime": "2026-09-05T14:32:10Z",
+  "source": "DCS",
+  "memberId": "TK123456789",
+  "payload": {
+    "marketingCarrier": "TK",
+    "operatingCarrier": "TK",
+    "flightNumber": "1985",
+    "origin": "IST",
+    "destination": "LHR",
+    "flightDate": "2026-09-05",
+    "cabin": "BUSINESS",
+    "bookingClass": "J",
+    "distanceMiles": 1552,
+    "ticketNumber": "2351234567890",
+    "couponNumber": 1
+  }
+}

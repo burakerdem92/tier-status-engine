@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: tier-status-api
+spec:
+  selector:
+    app: tier-status-api
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080

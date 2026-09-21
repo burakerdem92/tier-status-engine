@@ -1,0 +1,13 @@
+{
+  "eventId": "9f1a3c5e-2b7d-4a68-9c0e-4d8b6f2a1c77",
+  "eventType": "MANUAL_ADJUSTMENT",
+  "eventTime": "2026-09-07T11:40:19Z",
+  "source": "CALL_CENTER",
+  "memberId": "TK123456789",
+  "payload": {
+    "statusMiles": 38000,
+    "effectiveDate": "2026-09-01",
+    "reason": "GOODWILL",
+    "referenceCase": "CRM-2026-778912"
+  }
+}

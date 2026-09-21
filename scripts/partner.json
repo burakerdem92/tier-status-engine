@@ -1,0 +1,19 @@
+{
+  "eventId": "0b9d4f7e-8a21-4d6b-b3c2-7e5f1a9c0d44",
+  "eventType": "PARTNER_ACTIVITY",
+  "eventTime": "2026-09-06T02:10:07Z",
+  "source": "PARTNER_FILE",
+  "memberId": "TK123456789",
+  "payload": {
+    "partnerCode": "AURORA_HOTELS",
+    "partnerType": "HOTEL",
+    "activityDate": "2026-08-28",
+    "activityRef": "AUR-2026-118245",
+    "propertyCode": "AUR-IST-BOSPHORUS",
+    "checkInDate": "2026-08-25",
+    "checkOutDate": "2026-08-28",
+    "nights": 3,
+    "amount": 1140.00,
+    "currency": "USD"
+  }
+}

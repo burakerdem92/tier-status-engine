@@ -1,0 +1,11 @@
+{
+  "eventId": "77777777-6d3b-4e97-8f10-9a4b7c6d2777",
+  "eventType": "ACCRUAL_REVERSAL",
+  "eventTime": "2026-09-07T09:15:44Z",
+  "source": "REVENUE_ACCOUNTING",
+  "memberId": "TK987654321",
+  "payload": {
+    "originalEventId": "88888888-3f4a-4c8e-9a51-2f0d8b7c1888",
+    "reason": "TICKET_REFUNDED"
+  }
+}

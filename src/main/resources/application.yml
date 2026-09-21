@@ -1,0 +1,74 @@
+spring:
+  application:
+    name: tier-status-engine
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/tierstatus}
+    username: ${DB_USERNAME:tierstatus}
+    password: ${DB_PASSWORD:tierstatus}
+    hikari:
+      maximum-pool-size: ${DB_POOL_SIZE:20}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    consumer:
+      group-id: ${KAFKA_CONSUMER_GROUP:tier-status-engine}
+      enable-auto-commit: false
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      properties:
+        isolation.level: read_committed
+    listener:
+      ack-mode: record
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      acks: all
+      properties:
+        enable.idempotence: true
+        max.in.flight.requests.per.connection: 5
+
+tier:
+  roles:
+    consumer-enabled: ${CONSUMER_ENABLED:true}
+    api-enabled: ${API_ENABLED:true}
+    outbox-enabled: ${OUTBOX_ENABLED:true}
+    period-end-enabled: ${PERIOD_END_ENABLED:true}
+  kafka:
+    input-topic: ${INPUT_TOPIC:status-events}
+    member-topic: ${MEMBER_TOPIC:member-events}
+    changed-topic: ${CHANGED_TOPIC:tier-changed}
+    dlt-topic: ${DLT_TOPIC:status-events-dlt}
+    partitions: ${KAFKA_PARTITIONS:12}
+  outbox:
+    batch-size: ${OUTBOX_BATCH_SIZE:500}
+    fixed-delay-ms: ${OUTBOX_DELAY_MS:100}
+    stale-claim-seconds: ${OUTBOX_STALE_SECONDS:60}
+  period-end:
+    cron: ${PERIOD_END_CRON:0 30 0 * * *}
+  demo:
+    enabled: ${DEMO_ENABLED:false}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html

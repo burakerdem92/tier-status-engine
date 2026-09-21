@@ -1,0 +1,20 @@
+{
+  "eventId": "88888888-3f4a-4c8e-9a51-2f0d8b7c1888",
+  "eventType": "FLIGHT_FLOWN",
+  "eventTime": "2026-09-08T14:32:10Z",
+  "source": "PARTNER_FILE",
+  "memberId": "TK987654321",
+  "payload": {
+    "marketingCarrier": "LH",
+    "operatingCarrier": "LH",
+    "flightNumber": "1300",
+    "origin": "FRA",
+    "destination": "IST",
+    "flightDate": "2026-09-01",
+    "cabin": "BUSINESS",
+    "bookingClass": "C",
+    "distanceMiles": 1200,
+    "ticketNumber": "2201234567890",
+    "couponNumber": 1
+  }
+}
